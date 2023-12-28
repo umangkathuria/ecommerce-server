@@ -11,20 +11,19 @@ const config = require('../../config');
  * @param {String} password 
  */
 const loginUser = async (username, password) => {
-    const hash = crypto.createHmac('sha512', config.secret_key).update(password);
-    const hashedPassword = hash.digest('hex');
-    const user = await getByUsername(username);
-    if(!user){
-        throw new Error('User not found!');
-    }
+  const hash = crypto.createHmac('sha512', config.secret_key).update(password);
+  const hashedPassword = hash.digest('hex');
+  const user = await getByUsername(username);
+  if (!user) {
+    throw new Error('User not found!');
+  }
 
-    if(hashedPassword !== user.password){
-        throw new Error('Invalid credentials');
-    }
-    return true;
+  if (hashedPassword !== user.password) {
+    throw new Error('Invalid credentials');
+  }
+  return true;
 }
 
 module.exports = {
-    loginUser,
-
+  loginUser,
 }

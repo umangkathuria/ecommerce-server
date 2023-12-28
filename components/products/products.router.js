@@ -7,7 +7,7 @@ const controller = require('./products.controller');
 router.route('/products/list')
   .get(
     validateToken(),
-    (req, res) => {
+    (_req, res) => {
       controller.listProducts()
         .then(data => {
           res.status(200).json({
