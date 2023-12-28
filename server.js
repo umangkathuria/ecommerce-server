@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const { connect } = require('./core');
+const authRouter = require('./components/auth/auth.router');
 const customersRouter = require('./components/customers/customers.router');
 app.use(bodyParser.json());
 
@@ -24,7 +25,7 @@ connect({
     })
   });
   
-  
+  app.use('/', authRouter);
   app.use('/', customersRouter);
 
   app.listen(serverPort, () => {
