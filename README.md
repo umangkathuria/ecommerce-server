@@ -32,3 +32,8 @@ Install the dependencies and devDependencies and start the server.
 npm install
 npm run dev
 ```
+Once this is setup, you should see server is running logs in the console. 
+
+### MongoDB Configuration 
+You would want to ensure that the MongoDB connections are also correct. Please see the config file for username and password.
+This project currently uses a mongo db deployed on the cloud. The URL is also defined in the server.js file  line#16. If you must use your own DB, please change the username and password in the config.js and update the uri object in line#16 in server.js file.Once all the changes are made, you must build the project again by following the installation command section described above.
