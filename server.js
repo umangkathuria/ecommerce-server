@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const { connect } = require('./core');
 const authRouter = require('./components/auth/auth.router');
 const customersRouter = require('./components/customers/customers.router');
+const productsRouter = require('./components/products/products.router');
 app.use(bodyParser.json());
 
 const {
@@ -27,6 +28,7 @@ connect({
   
   app.use('/', authRouter);
   app.use('/', customersRouter);
+  app.use('/', productsRouter);
 
   app.listen(serverPort, () => {
     console.log(`SERVER STARTED ON PORT : ${serverPort}`);
