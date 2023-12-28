@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const { connect } = require('./core');
+const customersRouter = require('./components/customers/customers.router');
 app.use(bodyParser.json());
 
 const {
@@ -22,9 +23,12 @@ connect({
       message: 'Server is running.'
     })
   });
+  
+  
+  app.use('/', customersRouter);
 
   app.listen(serverPort, () => {
-    console.log(`SERVER STARTED ON PORT ${serverPort}`);
+    console.log(`SERVER STARTED ON PORT : ${serverPort}`);
   })
 }).catch(error => {
   console.error("Server startup failed: ", error);
