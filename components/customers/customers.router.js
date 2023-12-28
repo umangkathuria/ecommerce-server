@@ -8,6 +8,17 @@ const { REGISTER_BODY } = require('./customers.validations')
 const controller = require('./customers.controller');
 
 router.route('/register')
+/**
+ * @api {post} /register Register
+ * @apiName Registeration or Signup API
+ * @apiGroup users
+ * @apiDescription Use this API for registering a new user
+ *
+ * @apiParam (Body variable) {String} username Username
+ * @apiParam (Body variable) {String} password Password
+ *
+ * @apiUse CommonErrors
+ */
 .post(
   validateBody(REGISTER_BODY),
   ({ body }, res) => {

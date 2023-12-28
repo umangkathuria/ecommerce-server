@@ -5,6 +5,14 @@ const validateToken = require('../../middlewares/validate-token');
 const controller = require('./products.controller');
 
 router.route('/products/list')
+/**
+ * @api {get} /products/list List of products
+ * @apiName Product List
+ * @apiGroup products
+ * @apiDescription Use this API for getting list of products
+ *
+ * @apiUse CommonErrors
+ */
   .get(
     validateToken(),
     (_req, res) => {

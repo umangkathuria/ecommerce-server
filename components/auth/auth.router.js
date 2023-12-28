@@ -11,6 +11,17 @@ const { LOGIN_BODY } = require('./auth.validations')
 const controller = require('./auth.controller');
 
 router.route('/authenticate')
+/**
+ * @api {post} /authenticate Authenticate API
+ * @apiName Authentication API
+ * @apiGroup authenticate
+ * @apiDescription Use this API for performing Authentication/Login
+ *
+ * @apiParam (Body variable) {String} username Username
+ * @apiParam (Body variable) {String} password Password
+ *
+ * @apiUse CommonErrors
+ */
 .post(
   validateBody(LOGIN_BODY),
   ({ body }, res) => {
